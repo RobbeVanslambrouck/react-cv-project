@@ -5,8 +5,8 @@ class Education extends Component {
     return (
       <div className="education">
         <p>education</p>
-        {this.props.educations.map((edu) => (
-          <div key={edu.schoolName}>
+        {this.props.educations.map((edu, index) => (
+          <div key={index}>
             <p>{edu.schoolName}</p>
           </div>
         ))}

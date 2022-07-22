@@ -8,7 +8,7 @@ class GeneralInfo extends Component {
         <p>personal info</p>
         <p>{`${firstName} ${lastName}`}</p>
         <p>{email}</p>
-        <p>{phoneNumber}</p>
+        {isNaN(phoneNumber) ? null : <p>{phoneNumber.toString()}</p>}
       </div>
     );
   }

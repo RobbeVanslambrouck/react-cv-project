@@ -2,4 +2,7 @@
 
 main {
   min-height: calc(100vh - $headerHeigt - $footerHeigt);
+  display: flex;
+  gap: 5rem;
+  margin: 5rem;
 }
