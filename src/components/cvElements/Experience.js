@@ -6,8 +6,8 @@ class Experience extends Component {
       <div className="experience">
         <p>experience</p>
         {this.props.experiences.map((exp) => (
-          <div key={exp.companyName}>
-            <p>{exp.companyName}</p>
+          <div key={exp.id}>
+            <p>{exp.company}</p>
           </div>
         ))}
       </div>

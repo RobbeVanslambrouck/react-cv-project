@@ -16,20 +16,34 @@ class Editor extends Component {
     info.setPhoneNumber(NaN);
     this.state = {
       educations: [],
-      experiences: [Experience("", "")],
+      experiences: [Experience(0)],
       generalInfoForm: PersonalInfo("", ""),
     };
     props.setEducations(this.state.educations);
     props.setExperiences(this.state.experiences);
     props.setGeneralInfo(this.state.generalInfoForm);
   }
-  addExperience = (experience) => {
-    this.setState(
-      { experiences: [experience, ...this.state.experiences] },
-      () => {
-        this.props.setExperiences(this.state.experiences);
-      }
-    );
+
+  updateExperience = (experience) => {
+    const isExp = (exp) => exp.id === experience.id;
+    const newExpId = this.state.experiences.findIndex(isExp);
+    const updatedExperiences = this.state.experiences;
+    if (newExpId === -1) {
+      updatedExperiences.push(experience);
+    } else {
+      updatedExperiences[newExpId] = experience;
+    }
+    this.setState({ experiences: updatedExperiences }, () => {
+      this.props.setExperiences(this.state.experiences);
+    });
+  };
+
+  handleAddExperience = (e) => {
+    e.preventDefault();
+    const newId = this.state.experiences.length;
+    this.setState({
+      experiences: [...this.state.experiences, Experience(newId)],
+    });
   };
 
   render() {
@@ -46,10 +60,12 @@ class Editor extends Component {
         <p className="form-section-title">experience</p>
         {this.state.experiences.map((exp) => (
           <ExperienceForm
+            key={exp.id}
             experience={exp}
-            returnExperience={this.addExperience}
+            updateExperience={this.updateExperience}
           />
         ))}
+        <button onClick={this.handleAddExperience}>add</button>
         <p className="form-section-title">education</p>
         <EducationFrom
           returnEducation={(education) => {
