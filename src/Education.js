@@ -1,9 +1,19 @@
-const Education = (schoolName, degree) => {
+const Education = (id) => {
   const education = {};
 
-  education.schoolName = schoolName;
-  education.degree = degree;
+  education.id = id;
+  education.schoolName = "";
+  education.degree = "";
   education.graduationDate = new Date();
+
+  education.setSchoolName = (name) => {
+    education.schoolName = name;
+  };
+
+  education.setDegree = (degree) => {
+    education.degree = degree;
+  };
+
   education.setGraduationDate = (date) => {
     education.graduationDate = date;
   };

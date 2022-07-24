@@ -15,7 +15,7 @@ class Editor extends Component {
     info.setEmail("");
     info.setPhoneNumber(NaN);
     this.state = {
-      educations: [],
+      educations: [Education(0)],
       experiences: [Experience(0)],
       generalInfoForm: PersonalInfo("", ""),
     };
@@ -38,11 +38,33 @@ class Editor extends Component {
     });
   };
 
+  updateEducation = (education) => {
+    const isExp = (edu) => edu.id === education.id;
+    const newEduId = this.state.educations.findIndex(isExp);
+    const updatedEducations = this.state.educations;
+    if (newEduId === -1) {
+      updatedEducations.push(education);
+    } else {
+      updatedEducations[newEduId] = education;
+    }
+    this.setState({ educations: updatedEducations }, () => {
+      this.props.setEducations(this.state.educations);
+    });
+  };
+
   handleAddExperience = (e) => {
     e.preventDefault();
     const newId = Date.now;
     this.setState({
       experiences: [...this.state.experiences, Experience(newId)],
+    });
+  };
+
+  handleAddEducation = (e) => {
+    e.preventDefault();
+    const newId = Date.now;
+    this.setState({
+      educations: [...this.state.educations, Education(newId)],
     });
   };
 
@@ -52,6 +74,15 @@ class Editor extends Component {
     newExperiences.splice(expIndex, 1);
     this.setState({ experiences: newExperiences }, () => {
       this.props.setExperiences(this.state.experiences);
+    });
+  };
+
+  removeEducation = (id) => {
+    const newEducation = this.state.educations;
+    const eduIndex = newEducation.findIndex((edu) => edu.id === id);
+    newEducation.splice(eduIndex, 1);
+    this.setState({ educations: newEducation }, () => {
+      this.props.setEducations(this.state.educations);
     });
   };
 
@@ -77,16 +108,15 @@ class Editor extends Component {
         ))}
         <button onClick={this.handleAddExperience}>add</button>
         <p className="form-section-title">education</p>
-        <EducationFrom
-          returnEducation={(education) => {
-            this.setState(
-              { educations: [...this.state.educations, education] },
-              () => {
-                this.props.setEducations(this.state.educations);
-              }
-            );
-          }}
-        />
+        {this.state.educations.map((edu) => (
+          <EducationFrom
+            key={edu.id}
+            education={edu}
+            update={this.updateEducation}
+            remove={this.removeEducation}
+          />
+        ))}
+        <button onClick={this.handleAddEducation}>add</button>
       </div>
     );
   }
