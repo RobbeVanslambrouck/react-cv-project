@@ -63,6 +63,11 @@ class ExperienceForm extends Component {
     this.setState({ minimise: false });
   };
 
+  handleClickRemove = (e) => {
+    e.preventDefault();
+    this.props.removeExperience(this.state.id);
+  };
+
   render() {
     if (this.state.minimise) {
       return (
@@ -79,6 +84,11 @@ class ExperienceForm extends Component {
         <button type="button" onClick={this.minimise}>
           -
         </button>
+        {this.state.id !== 0 ? (
+          <button type="button" onClick={this.handleClickRemove}>
+            remove
+          </button>
+        ) : null}
         <form className="experience" onSubmit={this.handleSubmit}>
           <label htmlFor="company-name">company name:</label>
           <input

@@ -40,9 +40,18 @@ class Editor extends Component {
 
   handleAddExperience = (e) => {
     e.preventDefault();
-    const newId = this.state.experiences.length;
+    const newId = Date.now;
     this.setState({
       experiences: [...this.state.experiences, Experience(newId)],
+    });
+  };
+
+  removeExperience = (id) => {
+    const newExperiences = this.state.experiences;
+    const expIndex = newExperiences.findIndex((exp) => exp.id === id);
+    newExperiences.splice(expIndex, 1);
+    this.setState({ experiences: newExperiences }, () => {
+      this.props.setExperiences(this.state.experiences);
     });
   };
 
@@ -63,6 +72,7 @@ class Editor extends Component {
             key={exp.id}
             experience={exp}
             updateExperience={this.updateExperience}
+            removeExperience={this.removeExperience}
           />
         ))}
         <button onClick={this.handleAddExperience}>add</button>
