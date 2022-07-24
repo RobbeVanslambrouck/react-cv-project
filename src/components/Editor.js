@@ -102,8 +102,8 @@ class Editor extends Component {
           <ExperienceForm
             key={exp.id}
             experience={exp}
-            updateExperience={this.updateExperience}
-            removeExperience={this.removeExperience}
+            update={this.updateExperience}
+            remove={this.removeExperience}
           />
         ))}
         <button onClick={this.handleAddExperience}>add</button>

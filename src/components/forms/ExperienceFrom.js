@@ -16,7 +16,7 @@ class ExperienceForm extends Component {
     };
   }
 
-  getDateFromFormString = (string) => {
+  getDateFormString = (string) => {
     const d = string.split("-");
     return new Date(d[0], d[1] - 1, d[2]);
   };
@@ -27,14 +27,14 @@ class ExperienceForm extends Component {
     exp.setPosition(this.state.position);
     exp.setStartDate(this.state.startDate);
     exp.setEndDate(this.state.endDate);
-    this.props.updateExperience(exp);
+    this.props.update(exp);
   };
 
   handleChange = (e) => {
     if (e.target.type === "date") {
       this.setState(
         {
-          [e.target.name]: this.getDateFromFormString(e.target.value),
+          [e.target.name]: this.getDateFormString(e.target.value),
         },
         () => {
           this.updateExperience();
@@ -65,7 +65,7 @@ class ExperienceForm extends Component {
 
   handleClickRemove = (e) => {
     e.preventDefault();
-    this.props.removeExperience(this.state.id);
+    this.props.remove(this.state.id);
   };
 
   render() {
@@ -75,6 +75,11 @@ class ExperienceForm extends Component {
           <button type="button" onClick={this.maximise}>
             +
           </button>
+          {this.state.id !== 0 ? (
+            <button type="button" onClick={this.handleClickRemove}>
+              remove
+            </button>
+          ) : null}
           <p>{this.state.company}</p>
         </div>
       );
