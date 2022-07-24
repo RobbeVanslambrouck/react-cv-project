@@ -7,7 +7,14 @@ class Experience extends Component {
         <p>experience</p>
         {this.props.experiences.map((exp) => (
           <div key={exp.id}>
-            <p>{exp.company}</p>
+            <p>
+              {exp.startDate.toLocaleDateString()} -{" "}
+              {exp.endDate.toLocaleDateString()}
+            </p>
+            <p>
+              {exp.company}, {exp.location}
+            </p>
+            <p>position: {exp.position}</p>
           </div>
         ))}
       </div>

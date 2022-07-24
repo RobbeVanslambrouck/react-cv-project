@@ -5,11 +5,13 @@ import Experience from "../../Experience";
 class ExperienceForm extends Component {
   constructor(props) {
     super(props);
-    const { id, company, position, startDate, endDate } = this.props.experience;
+    const { id, company, position, location, startDate, endDate } =
+      this.props.experience;
     this.state = {
       id: id,
       company: company,
       position: position,
+      location: location,
       startDate: startDate,
       endDate: endDate,
       minimise: false,
@@ -22,11 +24,13 @@ class ExperienceForm extends Component {
   };
 
   updateExperience = () => {
-    const exp = Experience(this.state.id);
-    exp.setCompany(this.state.company);
-    exp.setPosition(this.state.position);
-    exp.setStartDate(this.state.startDate);
-    exp.setEndDate(this.state.endDate);
+    const { id, company, position, location, startDate, endDate } = this.state;
+    const exp = Experience(id);
+    exp.setCompany(company);
+    exp.setPosition(position);
+    exp.setLocation(location);
+    exp.setStartDate(startDate);
+    exp.setEndDate(endDate);
     this.props.update(exp);
   };
 
@@ -104,7 +108,13 @@ class ExperienceForm extends Component {
             onChange={this.handleChange}
           ></input>
           <label htmlFor="company-location">location:</label>
-          <input type="text" name="location" id="company-location"></input>
+          <input
+            type="text"
+            name="location"
+            id="company-location"
+            value={this.state.location}
+            onChange={this.handleChange}
+          ></input>
           <label htmlFor="position">postion:</label>
           <input
             type="text"
