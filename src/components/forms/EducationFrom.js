@@ -5,11 +5,11 @@ import Education from "../../Education";
 class EducationFrom extends Component {
   constructor(props) {
     super(props);
-    const { id, schoolName, degree, graduationDate } = props.education;
+    const { id, school, location, degree, graduationDate } = props.education;
     this.state = {
       id: id,
-      name: schoolName,
-      location: "",
+      school: school,
+      location: location,
       degree: degree,
       graduationDate: graduationDate,
       minimise: false,
@@ -17,11 +17,12 @@ class EducationFrom extends Component {
   }
 
   updateEducation = () => {
-    const { id, name, degree, graduationDate } = this.state;
+    const { id, school, location, degree, graduationDate } = this.state;
     const edu = Education(id);
-    edu.setSchoolName(name);
+    edu.setSchool(school);
     edu.setDegree(degree);
     edu.setGraduationDate(graduationDate);
+    edu.setLocation(location);
     this.props.update(edu);
   };
 
@@ -69,18 +70,20 @@ class EducationFrom extends Component {
   };
 
   render() {
-    if (this.state.minimise) {
+    const { id, school, degree, graduationDate, location, minimise } =
+      this.state;
+    if (minimise) {
       return (
         <div>
           <button type="button" onClick={this.maximise}>
             +
           </button>
-          {this.state.id !== 0 ? (
+          {id !== 0 ? (
             <button type="button" onClick={this.handleClickRemove}>
               remove
             </button>
           ) : null}
-          <p>{this.state.name}</p>
+          <p>{school}</p>
         </div>
       );
     }
@@ -89,7 +92,7 @@ class EducationFrom extends Component {
         <button type="button" onClick={this.minimise}>
           -
         </button>
-        {this.state.id !== 0 ? (
+        {id !== 0 ? (
           <button type="button" onClick={this.handleClickRemove}>
             remove
           </button>
@@ -98,9 +101,9 @@ class EducationFrom extends Component {
           <label htmlFor="school-name">school name:</label>
           <input
             type="text"
-            name="name"
+            name="school"
             id="school-name"
-            value={this.state.name}
+            value={school}
             onChange={this.handleChange}
           />
           <label htmlFor="school-location">location:</label>
@@ -108,7 +111,7 @@ class EducationFrom extends Component {
             type="text"
             name="location"
             id="school-location"
-            value={this.state.location}
+            value={location}
             onChange={this.handleChange}
           />
           <label htmlFor="degree">degree:</label>
@@ -116,7 +119,7 @@ class EducationFrom extends Component {
             type="text"
             name="degree"
             id="degree"
-            value={this.state.degree}
+            value={degree}
             onChange={this.handleChange}
           />
           <label htmlFor="graduation-date">graduation date:</label>
@@ -124,7 +127,7 @@ class EducationFrom extends Component {
             type="date"
             name="graduationDate"
             id="graduation-date"
-            value={format(this.state.graduationDate, "yyyy-MM-dd")}
+            value={format(graduationDate, "yyyy-MM-dd")}
             onChange={this.handleChange}
           />
         </form>

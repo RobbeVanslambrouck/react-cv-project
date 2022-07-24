@@ -7,7 +7,11 @@ class Education extends Component {
         <p>education</p>
         {this.props.educations.map((edu, index) => (
           <div key={index}>
-            <p>{edu.schoolName}</p>
+            <p>
+              {edu.school}, {edu.location}
+            </p>
+            <p>{edu.degree}</p>
+            <p>ended: {edu.graduationDate.toLocaleDateString()}</p>
           </div>
         ))}
       </div>

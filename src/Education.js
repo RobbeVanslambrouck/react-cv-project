@@ -2,12 +2,17 @@ const Education = (id) => {
   const education = {};
 
   education.id = id;
-  education.schoolName = "";
+  education.school = "";
+  education.location = "";
   education.degree = "";
   education.graduationDate = new Date();
 
-  education.setSchoolName = (name) => {
-    education.schoolName = name;
+  education.setSchool = (school) => {
+    education.school = school;
+  };
+
+  education.setLocation = (location) => {
+    education.location = location;
   };
 
   education.setDegree = (degree) => {
