@@ -1,5 +1,32 @@
+@import './shared.scss';
+
+label {
+  @include sr-only();
+}
+input {
+  margin: 0.5rem 0;
+}
+
 form {
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
+}
+
+#end-date {
+  &::before {
+    content: 'to: ';
+  }
+}
+
+#start-date {
+  &::before {
+    content: 'from: ';
+  }
+}
+
+#graduation-date {
+  &::before {
+    content: 'graduated on: ';
+  }
 }

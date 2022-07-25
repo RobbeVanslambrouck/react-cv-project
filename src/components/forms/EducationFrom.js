@@ -103,6 +103,7 @@ class EducationFrom extends Component {
             type="text"
             name="school"
             id="school-name"
+            placeholder="school"
             value={school}
             onChange={this.handleChange}
           />
@@ -111,6 +112,7 @@ class EducationFrom extends Component {
             type="text"
             name="location"
             id="school-location"
+            placeholder="location"
             value={location}
             onChange={this.handleChange}
           />
@@ -119,6 +121,7 @@ class EducationFrom extends Component {
             type="text"
             name="degree"
             id="degree"
+            placeholder="degree"
             value={degree}
             onChange={this.handleChange}
           />

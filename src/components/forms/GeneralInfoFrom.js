@@ -25,6 +25,7 @@ class GeneralInfoForm extends Component {
         <input
           name="firstName"
           id="first-name"
+          placeholder="name"
           value={this.state.firstName}
           onChange={this.handleChange}
         ></input>
@@ -32,6 +33,7 @@ class GeneralInfoForm extends Component {
         <input
           name="lastName"
           id="last-name"
+          placeholder="last name"
           value={this.state.lastName}
           onChange={this.handleChange}
         ></input>
@@ -40,6 +42,7 @@ class GeneralInfoForm extends Component {
           type="email"
           name="email"
           id="email"
+          placeholder="example@mail.com"
           value={this.state.email}
           onChange={this.handleChange}
         ></input>
@@ -48,6 +51,7 @@ class GeneralInfoForm extends Component {
           type="number"
           name="phoneNumber"
           id="phone-number"
+          placeholder="0412345678"
           value={this.state.phoneNumber}
           onChange={this.handleChange}
         ></input>

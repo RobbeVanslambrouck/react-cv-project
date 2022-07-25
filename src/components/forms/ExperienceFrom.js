@@ -104,6 +104,7 @@ class ExperienceForm extends Component {
             type="text"
             name="company"
             id="company-name"
+            placeholder="company"
             value={this.state.company}
             onChange={this.handleChange}
           ></input>
@@ -112,6 +113,7 @@ class ExperienceForm extends Component {
             type="text"
             name="location"
             id="company-location"
+            placeholder="location"
             value={this.state.location}
             onChange={this.handleChange}
           ></input>
@@ -120,6 +122,7 @@ class ExperienceForm extends Component {
             type="text"
             name="position"
             id="position"
+            placeholder="position"
             value={this.state.position}
             onChange={this.handleChange}
           ></input>
