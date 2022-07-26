@@ -75,7 +75,7 @@ class ExperienceForm extends Component {
   render() {
     if (this.state.minimise) {
       return (
-        <div>
+        <div className="minimised form-top-bar">
           <button type="button" onClick={this.maximise}>
             +
           </button>
@@ -84,20 +84,23 @@ class ExperienceForm extends Component {
               remove
             </button>
           ) : null}
-          <p>{this.state.company}</p>
+          <p className="from-top-summary">{this.state.company}</p>
         </div>
       );
     }
     return (
       <div>
-        <button type="button" onClick={this.minimise}>
-          -
-        </button>
-        {this.state.id !== 0 ? (
-          <button type="button" onClick={this.handleClickRemove}>
-            remove
+        <div className="maximised form-top-bar">
+          <button type="button" onClick={this.minimise}>
+            -
           </button>
-        ) : null}
+          {this.state.id !== 0 ? (
+            <button type="button" onClick={this.handleClickRemove}>
+              remove
+            </button>
+          ) : null}
+          <p className="from-top-summary">{this.state.company}</p>
+        </div>
         <form className="experience" onSubmit={this.handleSubmit}>
           <label htmlFor="company-name">company name:</label>
           <input

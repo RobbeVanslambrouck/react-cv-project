@@ -74,7 +74,7 @@ class EducationFrom extends Component {
       this.state;
     if (minimise) {
       return (
-        <div>
+        <div className="minimised form-top-bar">
           <button type="button" onClick={this.maximise}>
             +
           </button>
@@ -83,20 +83,23 @@ class EducationFrom extends Component {
               remove
             </button>
           ) : null}
-          <p>{school}</p>
+          <p className="from-top-summary">{school}</p>
         </div>
       );
     }
     return (
       <div>
-        <button type="button" onClick={this.minimise}>
-          -
-        </button>
-        {id !== 0 ? (
-          <button type="button" onClick={this.handleClickRemove}>
-            remove
+        <div className="maximised form-top-bar">
+          <button type="button" onClick={this.minimise}>
+            -
           </button>
-        ) : null}
+          {id !== 0 ? (
+            <button type="button" onClick={this.handleClickRemove}>
+              remove
+            </button>
+          ) : null}
+          <p className="from-top-summary">{school}</p>
+        </div>
         <form className="edu-exp" onSubmit={this.handleSubmit}>
           <label htmlFor="school-name">school name:</label>
           <input
