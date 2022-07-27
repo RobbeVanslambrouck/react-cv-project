@@ -89,7 +89,7 @@ class ExperienceForm extends Component {
       );
     }
     return (
-      <div>
+      <div className="experience">
         <div className="maximised form-top-bar">
           <button type="button" onClick={this.minimise}>
             -
@@ -101,7 +101,7 @@ class ExperienceForm extends Component {
           ) : null}
           <p className="from-top-summary">{this.state.company}</p>
         </div>
-        <form className="experience" onSubmit={this.handleSubmit}>
+        <form className="experience-form" onSubmit={this.handleSubmit}>
           <label htmlFor="company-name">company name:</label>
           <input
             type="text"

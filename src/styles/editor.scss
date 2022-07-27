@@ -1,4 +1,4 @@
-@import './shared.scss';
+@import "./shared.scss";
 
 label {
   @include sr-only();
@@ -10,31 +10,43 @@ input {
 form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
   border-bottom: 1px solid black;
+}
+
+.form-section-title {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.8rem;
+  &:not(:first-child) {
+    margin: 3rem 0 0 0;
+  }
 }
 
 #end-date {
   &::before {
-    content: 'to: ';
+    content: "to: ";
   }
 }
 
 #start-date {
   &::before {
-    content: 'from: ';
+    content: "from: ";
   }
 }
 
 #graduation-date {
   &::before {
-    content: 'graduated on: ';
+    content: "graduated on: ";
   }
 }
 
 .form-top-bar {
   background-color: #eee;
   border-top: 1px solid black;
+  height: 2rem;
+  line-height: 2rem;
+  text-transform: capitalize;
+  margin-top: 1rem;
 
   &.minimised {
     border-bottom: 1px solid black;
@@ -49,7 +61,28 @@ form {
   }
 
   button {
-    background-color: rgba($color: #000000, $alpha: 0.0);
+    background-color: rgba($color: #000000, $alpha: 0);
     border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.add-button {
+  $btnShadowSize: 2px;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  border: 1px solid black;
+  box-shadow: $btnShadowSize $btnShadowSize 0 #000;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-top: 1rem;
+
+  &:active {
+    box-shadow: none;
+    transform: translate($btnShadowSize, $btnShadowSize);
   }
 }

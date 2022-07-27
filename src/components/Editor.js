@@ -106,7 +106,9 @@ class Editor extends Component {
             remove={this.removeExperience}
           />
         ))}
-        <button onClick={this.handleAddExperience}>add</button>
+        <button className="add-button" onClick={this.handleAddExperience}>
+          add experience
+        </button>
         <p className="form-section-title">education</p>
         {this.state.educations.map((edu) => (
           <EducationFrom
@@ -116,7 +118,9 @@ class Editor extends Component {
             remove={this.removeEducation}
           />
         ))}
-        <button onClick={this.handleAddEducation}>add</button>
+        <button className="add-button" onClick={this.handleAddEducation}>
+          add degree
+        </button>
       </div>
     );
   }
