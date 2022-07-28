@@ -1,9 +1,16 @@
-@import './shared.scss';
+@import "./shared.scss";
 
 main {
   min-height: calc(100vh - $headerHeigt - $footerHeigt);
-  display: flex;
+  display: grid;
   justify-content: space-between;
   gap: 5rem;
-  margin: 5rem;
+  margin: 2rem;
+  justify-content: left;
+}
+
+@media only screen and (min-width: 57rem) {
+  main {
+    grid-template-columns: auto auto;
+  }
 }
