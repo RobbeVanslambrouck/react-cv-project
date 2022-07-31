@@ -3,9 +3,13 @@ const PersonalInfo = (firstName, lastName) => {
 
   personalInfo.firstName = firstName;
   personalInfo.lastName = lastName;
+  personalInfo.title = "";
   personalInfo.email = "";
   personalInfo.phoneNumber = NaN;
 
+  personalInfo.setTitle = (title) => {
+    personalInfo.title = title;
+  };
   personalInfo.setEmail = (email) => {
     personalInfo.email = email;
   };

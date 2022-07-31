@@ -5,6 +5,7 @@ class GeneralInfoForm extends Component {
   state = {
     firstName: "",
     lastName: "",
+    title: "",
     email: "",
     phoneNumber: "",
   };
@@ -12,6 +13,7 @@ class GeneralInfoForm extends Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () => {
       const info = PersonalInfo(this.state.firstName, this.state.lastName);
+      info.setTitle(this.state.title);
       info.setEmail(this.state.email);
       info.setPhoneNumber(this.state.phoneNumber);
       this.props.returnInfo(info);
@@ -21,7 +23,7 @@ class GeneralInfoForm extends Component {
   render() {
     return (
       <form className="general-info">
-        <label htmlFor="name">first name:</label>
+        <label htmlFor="fist-name">first name:</label>
         <input
           name="firstName"
           id="first-name"
@@ -29,12 +31,20 @@ class GeneralInfoForm extends Component {
           value={this.state.firstName}
           onChange={this.handleChange}
         ></input>
-        <label htmlFor="name">last name:</label>
+        <label htmlFor="last-name">last name:</label>
         <input
           name="lastName"
           id="last-name"
           placeholder="last name"
           value={this.state.lastName}
+          onChange={this.handleChange}
+        ></input>
+        <label htmlFor="job-title">last name:</label>
+        <input
+          name="title"
+          id="job-title"
+          placeholder="job title"
+          value={this.state.title}
           onChange={this.handleChange}
         ></input>
         <label htmlFor="email">email:</label>
