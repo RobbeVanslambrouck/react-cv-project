@@ -7,6 +7,7 @@ const PersonalInfo = (firstName, lastName) => {
   personalInfo.email = "";
   personalInfo.summary = "";
   personalInfo.phoneNumber = NaN;
+  personalInfo.profileImgUrl = "";
 
   personalInfo.setTitle = (title) => {
     personalInfo.title = title;
@@ -19,6 +20,10 @@ const PersonalInfo = (firstName, lastName) => {
   };
   personalInfo.setSummary = (summary) => {
     personalInfo.summary = summary;
+  };
+
+  personalInfo.setProfileImgUrl = (profileImgUrl) => {
+    personalInfo.profileImgUrl = profileImgUrl;
   };
 
   return personalInfo;

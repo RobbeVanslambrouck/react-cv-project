@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 class CvTop extends Component {
   render() {
-    const { firstName, lastName, title } = this.props.info;
+    const { firstName, lastName, title, profileImgUrl } = this.props.info;
     return (
       <div>
         <p>
           {firstName} {lastName}
         </p>
         <p>{title}</p>
-        <img alt="profile"></img>
+        <img alt="profile" src={profileImgUrl}></img>
       </div>
     );
   }

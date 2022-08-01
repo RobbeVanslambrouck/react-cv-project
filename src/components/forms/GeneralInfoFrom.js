@@ -9,19 +9,41 @@ class GeneralInfoForm extends Component {
     email: "",
     phoneNumber: "",
     summary: "",
+    image: "",
+  };
+
+  updateInfo = () => {
+    const { firstName, lastName, title, email, phoneNumber, summary, image } =
+      this.state;
+    const info = PersonalInfo(firstName, lastName);
+    info.setTitle(title);
+    info.setEmail(email);
+    info.setPhoneNumber(phoneNumber);
+    info.setSummary(summary);
+    info.setProfileImgUrl(image);
+    this.props.returnInfo(info);
   };
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value }, () => {
-      const { firstName, lastName, title, email, phoneNumber, summary } =
-        this.state;
-      const info = PersonalInfo(firstName, lastName);
-      info.setTitle(title);
-      info.setEmail(email);
-      info.setPhoneNumber(phoneNumber);
-      info.setSummary(summary);
-      this.props.returnInfo(info);
-    });
+    if (e.target.name === "image") {
+      this.setState(
+        {
+          [e.target.name]: URL.createObjectURL(e.target.files[0]),
+        },
+        () => {
+          this.updateInfo();
+        }
+      );
+      return;
+    }
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => {
+        this.updateInfo();
+      }
+    );
   };
 
   render() {
@@ -45,6 +67,8 @@ class GeneralInfoForm extends Component {
           value={lastName}
           onChange={this.handleChange}
         ></input>
+        <label htmlFor="image">Select Image File:</label>
+        <input type="file" name="image" onChange={this.handleChange}></input>
         <label htmlFor="job-title">last name:</label>
         <input
           name="title"
