@@ -8,19 +8,25 @@ class GeneralInfoForm extends Component {
     title: "",
     email: "",
     phoneNumber: "",
+    summary: "",
   };
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () => {
-      const info = PersonalInfo(this.state.firstName, this.state.lastName);
-      info.setTitle(this.state.title);
-      info.setEmail(this.state.email);
-      info.setPhoneNumber(this.state.phoneNumber);
+      const { firstName, lastName, title, email, phoneNumber, summary } =
+        this.state;
+      const info = PersonalInfo(firstName, lastName);
+      info.setTitle(title);
+      info.setEmail(email);
+      info.setPhoneNumber(phoneNumber);
+      info.setSummary(summary);
       this.props.returnInfo(info);
     });
   };
 
   render() {
+    const { firstName, lastName, title, email, phoneNumber, summary } =
+      this.state;
     return (
       <form className="general-info">
         <label htmlFor="fist-name">first name:</label>
@@ -28,7 +34,7 @@ class GeneralInfoForm extends Component {
           name="firstName"
           id="first-name"
           placeholder="name"
-          value={this.state.firstName}
+          value={firstName}
           onChange={this.handleChange}
         ></input>
         <label htmlFor="last-name">last name:</label>
@@ -36,7 +42,7 @@ class GeneralInfoForm extends Component {
           name="lastName"
           id="last-name"
           placeholder="last name"
-          value={this.state.lastName}
+          value={lastName}
           onChange={this.handleChange}
         ></input>
         <label htmlFor="job-title">last name:</label>
@@ -44,16 +50,25 @@ class GeneralInfoForm extends Component {
           name="title"
           id="job-title"
           placeholder="job title"
-          value={this.state.title}
+          value={title}
           onChange={this.handleChange}
         ></input>
+        <label htmlFor="summary">profile:</label>
+        <textarea
+          name="summary"
+          id="summary"
+          placeholder="who are you and what can you offer"
+          value={summary}
+          onChange={this.handleChange}
+        ></textarea>
+
         <label htmlFor="email">email:</label>
         <input
           type="email"
           name="email"
           id="email"
           placeholder="example@mail.com"
-          value={this.state.email}
+          value={email}
           onChange={this.handleChange}
         ></input>
         <label htmlFor="phone-number">phone number:</label>
@@ -62,7 +77,7 @@ class GeneralInfoForm extends Component {
           name="phoneNumber"
           id="phone-number"
           placeholder="0412345678"
-          value={this.state.phoneNumber}
+          value={phoneNumber}
           onChange={this.handleChange}
         ></input>
       </form>

@@ -5,6 +5,7 @@ const PersonalInfo = (firstName, lastName) => {
   personalInfo.lastName = lastName;
   personalInfo.title = "";
   personalInfo.email = "";
+  personalInfo.summary = "";
   personalInfo.phoneNumber = NaN;
 
   personalInfo.setTitle = (title) => {
@@ -15,6 +16,9 @@ const PersonalInfo = (firstName, lastName) => {
   };
   personalInfo.setPhoneNumber = (phoneNumber) => {
     personalInfo.phoneNumber = phoneNumber;
+  };
+  personalInfo.setSummary = (summary) => {
+    personalInfo.summary = summary;
   };
 
   return personalInfo;
