@@ -2,15 +2,8 @@
 
 main {
   min-height: calc(100vh - $headerHeigt - $footerHeigt);
-  display: grid;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
   gap: 5rem;
   margin: 2rem;
-  justify-content: left;
-}
-
-@media only screen and (min-width: 57rem) {
-  main {
-    grid-template-columns: auto auto;
-  }
 }
