@@ -1,3 +1,8 @@
+$scale: 0.8;
+@function scale-size($size) {
+  @return $size * $scale;
+}
+
 @mixin preview-width-at($width, $screen-width) {
   @media only screen and (min-width: $screen-width) {
     $height: calc($width * 1.414213);
@@ -16,5 +21,41 @@
     height: $height;
   }
 }
+
 @include preview-width-at(42rem, 30rem);
 @include preview-width-at(63rem, 40rem);
+
+.preview {
+  border: 1px solid black;
+  width: scale-size(800px);
+  height: calc(scale-size(800px) * 1.414213);
+}
+
+.cv-top {
+  background-color: rgba($color: #000000, $alpha: 0.05);
+  display: grid;
+  grid-template-areas: "name img" "title img";
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 scale-size(2rem);
+  height: scale-size(15rem);
+}
+
+.cv-profile-img {
+  grid-area: img;
+  object-fit: cover;
+  width: scale-size(13rem);
+  height: scale-size(13rem);
+  border-radius: 50%;
+}
+
+.cv-name {
+  font-size: scale-size(3.3rem);
+  color: rgba($color: #000000, $alpha: 0.75);
+}
+
+.cv-job-title {
+  font-size: scale-size(2.3rem);
+  color: rgba($color: #000000, $alpha: 0.75);
+  align-self: baseline;
+}

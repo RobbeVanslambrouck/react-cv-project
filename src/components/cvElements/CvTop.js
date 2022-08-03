@@ -4,12 +4,12 @@ class CvTop extends Component {
   render() {
     const { firstName, lastName, title, profileImgUrl } = this.props.info;
     return (
-      <div>
-        <p>
+      <div className="cv-top">
+        <p className="cv-name">
           {firstName} {lastName}
         </p>
-        <p>{title}</p>
-        <img alt="profile" src={profileImgUrl}></img>
+        <p className="cv-job-title">{title}</p>
+        <img alt="profile" src={profileImgUrl} className="cv-profile-img"></img>
       </div>
     );
   }
