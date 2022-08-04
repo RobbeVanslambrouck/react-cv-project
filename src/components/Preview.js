@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Education from "./cvElements/Education";
 import Experience from "./cvElements/Experience";
-import GeneralInfo from "./cvElements/GeneralInfo";
 import CvTop from "./cvElements/CvTop";
 import Contact from "./cvElements/Contact";
 import Profile from "./cvElements/Profile";
@@ -15,7 +14,6 @@ class Preview extends Component {
         <CvTop info={personalInfo}></CvTop>
         <Contact info={personalInfo}></Contact>
         <Profile info={personalInfo}></Profile>
-        <GeneralInfo info={personalInfo} />
         <Experience experiences={experiences} />
         <Education educations={educations} />
       </div>
