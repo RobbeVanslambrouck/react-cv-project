@@ -4,10 +4,12 @@ class Contact extends Component {
   render() {
     const { email, phoneNumber } = this.props.info;
     return (
-      <div>
-        <p>Contact</p>
-        <p>{email}</p>
-        {isNaN(phoneNumber) ? null : <p>{phoneNumber.toString()}</p>}
+      <div className="contact">
+        <p className="section-title">Contact</p>
+        <p className="email">{email}</p>
+        {isNaN(phoneNumber) ? null : (
+          <p className="phone-number">{phoneNumber.toString()}</p>
+        )}
       </div>
     );
   }

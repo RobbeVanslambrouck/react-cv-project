@@ -4,9 +4,9 @@ class Profile extends Component {
   render() {
     const { summary } = this.props.info;
     return (
-      <div>
-        <p>Profile</p>
-        <p>{summary}</p>
+      <div className="profile">
+        <p className="section-title">Profile</p>
+        <p className="profile-summary">{summary}</p>
       </div>
     );
   }

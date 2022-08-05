@@ -3,18 +3,17 @@ import React, { Component } from "react";
 class Experience extends Component {
   render() {
     return (
-      <div className="experience">
-        <p>experience</p>
+      <div className="experiences">
+        <p className="section-title">experience</p>
         {this.props.experiences.map((exp) => (
-          <div key={exp.id}>
-            <p>
+          <div key={exp.id} className="experience">
+            <p className="period">
               {exp.startDate.toLocaleDateString()} -{" "}
               {exp.endDate.toLocaleDateString()}
             </p>
-            <p>
-              {exp.company}, {exp.location}
-            </p>
-            <p>position: {exp.position}</p>
+            <p className="company">{exp.company}</p>
+            <p className="location">{exp.location}</p>
+            <p className="position">position: {exp.position}</p>
           </div>
         ))}
       </div>
