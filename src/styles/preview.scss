@@ -3,6 +3,8 @@ $scale: 0.8;
   @return $size * $scale;
 }
 
+$border-white-space: scale-size(2rem);
+
 @mixin preview-width-at($width, $screen-width) {
   @media only screen and (min-width: $screen-width) {
     $height: calc($width * 1.414213);
@@ -29,9 +31,16 @@ $scale: 0.8;
   border: 1px solid black;
   width: scale-size(800px);
   height: calc(scale-size(800px) * 1.414213);
+  display: grid;
+  grid-template:
+    "top top top" min-content
+    "contact profile profile" min-content
+    "education experience experience" min-content;
+  gap: scale-size(3rem);
 }
 
 .cv-top {
+  grid-area: top;
   background-color: rgba($color: #000000, $alpha: 0.05);
   display: grid;
   grid-template-areas: "name img" "title img";
@@ -58,4 +67,32 @@ $scale: 0.8;
   font-size: scale-size(2.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
   align-self: baseline;
+}
+
+.section-title {
+  font-size: scale-size(2.5rem);
+  color: rgba($color: #000000, $alpha: 0.85);
+  border-bottom: scale-size(2px) solid rgba($color: #000000, $alpha: 0.75);
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: scale-size(1rem);
+}
+
+.contact {
+  grid-area: contact;
+  padding-left: $border-white-space;
+}
+
+.experiences {
+  grid-area: experience;
+  padding-right: $border-white-space;
+}
+
+.profile {
+  grid-area: profile;
+  padding-right: $border-white-space;
+}
+
+.educations {
+  grid-area: education;
+  padding-left: $border-white-space;
 }
