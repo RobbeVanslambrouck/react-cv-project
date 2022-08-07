@@ -82,6 +82,7 @@ class GeneralInfoForm extends Component {
           name="summary"
           id="summary"
           placeholder="who are you and what can you offer"
+          rows={5}
           value={summary}
           onChange={this.handleChange}
         ></textarea>
