@@ -15,6 +15,18 @@ $border-white-space: scale-size(2rem);
   }
 }
 
+@mixin vertical-div {
+  border-image: linear-gradient(180deg, #515151 0%, #dfdfdf 100%) 1;
+  border-left: scale-size(3px) solid;
+  padding-left: scale-size(2rem);
+}
+
+@mixin horizontal-div {
+  border-image: linear-gradient(90deg, #515151 0%, #dfdfdf 100%) 50;
+  border-bottom: scale-size(3px) solid;
+  margin-bottom: scale-size(1rem);
+}
+
 @media only screen and (max-width: 30rem) {
   $width: 21rem;
   $height: calc($width * 1.414213);
@@ -37,6 +49,7 @@ $border-white-space: scale-size(2rem);
     "contact profile profile" min-content
     "education experience experience" min-content;
   gap: scale-size(3rem);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cv-top {
@@ -59,6 +72,8 @@ $border-white-space: scale-size(2rem);
 }
 
 .cv-name {
+  text-transform: uppercase;
+  letter-spacing: scale-size(0.4rem);
   font-size: scale-size(3.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
 }
@@ -72,9 +87,10 @@ $border-white-space: scale-size(2rem);
 .section-title {
   font-size: scale-size(2.5rem);
   color: rgba($color: #000000, $alpha: 0.85);
-  border-bottom: scale-size(2px) solid rgba($color: #000000, $alpha: 0.75);
-  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.1);
-  margin-bottom: scale-size(1rem);
+  text-transform: uppercase;
+  letter-spacing: scale-size(0.4rem);
+  padding-left: scale-size(0.7rem);
+  @include horizontal-div();
 }
 
 .contact {
@@ -85,11 +101,13 @@ $border-white-space: scale-size(2rem);
 .experiences {
   grid-area: experience;
   padding-right: $border-white-space;
+  @include vertical-div();
 }
 
 .profile {
   grid-area: profile;
   padding-right: $border-white-space;
+  @include vertical-div();
 }
 
 .educations {
