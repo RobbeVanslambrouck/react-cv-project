@@ -89,38 +89,44 @@ class Editor extends Component {
   render() {
     return (
       <div className="editor">
-        <p className="form-section-title">personal info</p>
-        <GeneralInfoForm
-          returnInfo={(info) => {
-            this.setState({ generalInfoForm: info }, () => {
-              this.props.setGeneralInfo(this.state.generalInfoForm);
-            });
-          }}
-        />
-        <p className="form-section-title">experience</p>
-        {this.state.experiences.map((exp) => (
-          <ExperienceForm
-            key={exp.id}
-            experience={exp}
-            update={this.updateExperience}
-            remove={this.removeExperience}
+        <div className="personal-info">
+          <p className="form-section-title">personal info</p>
+          <GeneralInfoForm
+            returnInfo={(info) => {
+              this.setState({ generalInfoForm: info }, () => {
+                this.props.setGeneralInfo(this.state.generalInfoForm);
+              });
+            }}
           />
-        ))}
-        <button className="add-button" onClick={this.handleAddExperience}>
-          add experience
-        </button>
-        <p className="form-section-title">education</p>
-        {this.state.educations.map((edu) => (
-          <EducationFrom
-            key={edu.id}
-            education={edu}
-            update={this.updateEducation}
-            remove={this.removeEducation}
-          />
-        ))}
-        <button className="add-button" onClick={this.handleAddEducation}>
-          add degree
-        </button>
+        </div>
+        <div className="experience">
+          <p className="form-section-title">experience</p>
+          {this.state.experiences.map((exp) => (
+            <ExperienceForm
+              key={exp.id}
+              experience={exp}
+              update={this.updateExperience}
+              remove={this.removeExperience}
+            />
+          ))}
+          <button className="add-button" onClick={this.handleAddExperience}>
+            add experience
+          </button>
+        </div>
+        <div className="education">
+          <p className="form-section-title">education</p>
+          {this.state.educations.map((edu) => (
+            <EducationFrom
+              key={edu.id}
+              education={edu}
+              update={this.updateEducation}
+              remove={this.removeEducation}
+            />
+          ))}
+          <button className="add-button" onClick={this.handleAddEducation}>
+            add degree
+          </button>
+        </div>
       </div>
     );
   }

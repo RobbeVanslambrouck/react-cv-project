@@ -1,5 +1,11 @@
 @import "./shared.scss";
 
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 label {
   @include sr-only();
 }
