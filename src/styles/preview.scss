@@ -61,6 +61,7 @@ $border-white-space: scale-size(2rem);
   justify-content: space-between;
   padding: 0 scale-size(2rem);
   height: scale-size(15rem);
+  text-transform: uppercase;
 }
 
 .cv-profile-img {
@@ -72,13 +73,13 @@ $border-white-space: scale-size(2rem);
 }
 
 .cv-name {
-  text-transform: uppercase;
   letter-spacing: scale-size(0.4rem);
   font-size: scale-size(3.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
 }
 
 .cv-job-title {
+  letter-spacing: scale-size(0.3rem);
   font-size: scale-size(2.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
   align-self: baseline;
@@ -96,6 +97,26 @@ $border-white-space: scale-size(2rem);
 .contact {
   grid-area: contact;
   padding-left: $border-white-space;
+
+  @mixin contact-icon($url) {
+    display: flex;
+    &::before {
+      content: '';
+      background: $url;
+      height: scale-size(2rem);
+      width: scale-size(2rem);
+      margin-right: scale-size(1rem);
+      display: inline-block;
+
+    }
+  }
+  .email {
+    @include contact-icon(url(../icons/mail-svgrepo-com.svg));
+  }
+
+  .phone-number{
+    @include contact-icon(url(../icons/phone-call-svgrepo-com.svg));
+  }
 }
 
 .experiences {
