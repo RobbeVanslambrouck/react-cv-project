@@ -95,27 +95,43 @@ $border-white-space: scale-size(2rem);
 }
 
 .contact {
+  display: flex;
+  flex-direction: column;
+  gap: scale-size(1rem);
   grid-area: contact;
   padding-left: $border-white-space;
+  max-width: scale-size(25rem);
 
   @mixin contact-icon($url) {
     display: flex;
+    gap: scale-size(1rem);
+    align-items: center;
     &::before {
       content: '';
       background: $url;
-      height: scale-size(2rem);
-      width: scale-size(2rem);
-      margin-right: scale-size(1rem);
+      min-height: scale-size(2rem);
+      min-width: scale-size(2rem);
       display: inline-block;
-
     }
   }
   .email {
     @include contact-icon(url(../icons/mail-svgrepo-com.svg));
   }
 
-  .phone-number{
+  .phone-number {
     @include contact-icon(url(../icons/phone-call-svgrepo-com.svg));
+  }
+
+  .location {
+    @include contact-icon(url(../icons/location-svgrepo-com.svg));
+  }
+
+  .linkedin {
+    @include contact-icon(url(../icons/linkedin-svgrepo-com.svg));
+  }
+
+  .website {
+    @include contact-icon(url(../icons/link-svgrepo-com.svg));
   }
 }
 
@@ -134,4 +150,5 @@ $border-white-space: scale-size(2rem);
 .educations {
   grid-area: education;
   padding-left: $border-white-space;
+  max-width: scale-size(25rem);
 }
