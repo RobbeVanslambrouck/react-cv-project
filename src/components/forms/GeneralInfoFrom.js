@@ -6,19 +6,14 @@ class GeneralInfoForm extends Component {
     firstName: "",
     lastName: "",
     title: "",
-    email: "",
-    phoneNumber: "",
     summary: "",
     image: "",
   };
 
   updateInfo = () => {
-    const { firstName, lastName, title, email, phoneNumber, summary, image } =
-      this.state;
+    const { firstName, lastName, title, summary, image } = this.state;
     const info = PersonalInfo(firstName, lastName);
     info.setTitle(title);
-    info.setEmail(email);
-    info.setPhoneNumber(phoneNumber);
     info.setSummary(summary);
     info.setProfileImgUrl(image);
     this.props.returnInfo(info);
@@ -47,8 +42,7 @@ class GeneralInfoForm extends Component {
   };
 
   render() {
-    const { firstName, lastName, title, email, phoneNumber, summary } =
-      this.state;
+    const { firstName, lastName, title, summary } = this.state;
     return (
       <form className="general-info">
         <label htmlFor="fist-name">first name:</label>
@@ -86,25 +80,6 @@ class GeneralInfoForm extends Component {
           value={summary}
           onChange={this.handleChange}
         ></textarea>
-
-        <label htmlFor="email">email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="example@mail.com"
-          value={email}
-          onChange={this.handleChange}
-        ></input>
-        <label htmlFor="phone-number">phone number:</label>
-        <input
-          type="number"
-          name="phoneNumber"
-          id="phone-number"
-          placeholder="0412345678"
-          value={phoneNumber}
-          onChange={this.handleChange}
-        ></input>
       </form>
     );
   }

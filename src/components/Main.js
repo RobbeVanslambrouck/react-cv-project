@@ -3,12 +3,14 @@ import Editor from "./Editor";
 import Preview from "./Preview";
 import "../styles/main.scss";
 import PersonalInfo from "../PersonalInfo";
+import ContactInfo from "../ContactInfo";
 
 class Main extends Component {
   state = {
     educations: [],
     experiences: [],
     personalInfo: PersonalInfo("", ""),
+    contactInfo: ContactInfo(),
   };
 
   setEducations = (educations) => {
@@ -23,19 +25,25 @@ class Main extends Component {
     this.setState({ personalInfo: personalInfo });
   };
 
+  setContactInfo = (contactInfo) => {
+    this.setState({ contactInfo: contactInfo });
+  };
+
   render() {
-    const { educations, experiences, personalInfo } = this.state;
+    const { educations, experiences, personalInfo, contactInfo } = this.state;
     return (
       <main>
         <Editor
           setEducations={this.setEducations}
           setExperiences={this.setExperiences}
           setGeneralInfo={this.setPersonalInfo}
+          setContactInfo={this.setContactInfo}
         />
         <Preview
           educations={educations}
           experiences={experiences}
           personalInfo={personalInfo}
+          contactInfo={contactInfo}
         />
       </main>
     );

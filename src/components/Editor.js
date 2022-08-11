@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import EducationFrom from "./forms/EducationFrom";
 import ExperienceForm from "./forms/ExperienceFrom";
 import GeneralInfoForm from "./forms/GeneralInfoFrom";
+import ContactForm from "./forms/ContactForm";
 import "../styles/editor.scss";
 import Education from "../Education";
 import Experience from "../Experience";
 import PersonalInfo from "../PersonalInfo";
+import ContactInfo from "../ContactInfo";
 
 class Editor extends Component {
   constructor(props) {
@@ -18,10 +20,12 @@ class Editor extends Component {
       educations: [Education(0)],
       experiences: [Experience(0)],
       generalInfoForm: PersonalInfo("", ""),
+      contactInfoForm: ContactInfo(),
     };
     props.setEducations(this.state.educations);
     props.setExperiences(this.state.experiences);
     props.setGeneralInfo(this.state.generalInfoForm);
+    props.setContactInfo(this.state.contactInfoForm);
   }
 
   updateExperience = (experience) => {
@@ -99,6 +103,16 @@ class Editor extends Component {
             }}
           />
         </div>
+        <dev className="contact-info">
+          <p className="form-section-title">contact info</p>
+          <ContactForm
+            returnInfo={(info) => {
+              this.setState({ contactInfoForm: info }, () => {
+                this.props.setContactInfo(this.state.contactInfoForm);
+              });
+            }}
+          ></ContactForm>
+        </dev>
         <div className="experience">
           <p className="form-section-title">experience</p>
           {this.state.experiences.map((exp) => (

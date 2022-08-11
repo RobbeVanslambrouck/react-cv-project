@@ -8,11 +8,11 @@ import "../styles/preview.scss";
 
 class Preview extends Component {
   render() {
-    const { educations, experiences, personalInfo } = this.props;
+    const { educations, experiences, personalInfo, contactInfo } = this.props;
     return (
       <div className="preview">
         <CvTop info={personalInfo}></CvTop>
-        <Contact info={personalInfo}></Contact>
+        <Contact info={contactInfo}></Contact>
         <Profile info={personalInfo}></Profile>
         <Experience experiences={experiences} />
         <Education educations={educations} />
