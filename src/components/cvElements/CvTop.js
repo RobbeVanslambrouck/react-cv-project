@@ -12,7 +12,9 @@ class CvTop extends Component {
         <img
           alt="profile"
           src={profileImgUrl}
-          className={profileImgUrl ? "cv-profile-img" : "sr-only"}
+          className={
+            profileImgUrl === "" ? "cv-profile-img sr-only" : "cv-profile-img"
+          }
         ></img>
       </div>
     );

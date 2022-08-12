@@ -83,6 +83,7 @@ $border-white-space: scale-size(2rem);
   font-size: scale-size(2.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
   align-self: baseline;
+  grid-area: title;
 }
 
 .section-title {
