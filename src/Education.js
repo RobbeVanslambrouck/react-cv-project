@@ -5,7 +5,8 @@ const Education = (id) => {
   education.school = "";
   education.location = "";
   education.degree = "";
-  education.graduationDate = new Date();
+  education.startDate = new Date();
+  education.endDate = new Date();
 
   education.setSchool = (school) => {
     education.school = school;
@@ -19,8 +20,12 @@ const Education = (id) => {
     education.degree = degree;
   };
 
-  education.setGraduationDate = (date) => {
-    education.graduationDate = date;
+  education.setStartDate = (date) => {
+    education.startDate = date;
+  };
+
+  education.setEndDate = (date) => {
+    education.endDate = date;
   };
 
   return education;

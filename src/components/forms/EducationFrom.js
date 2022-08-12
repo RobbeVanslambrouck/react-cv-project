@@ -5,23 +5,26 @@ import Education from "../../Education";
 class EducationFrom extends Component {
   constructor(props) {
     super(props);
-    const { id, school, location, degree, graduationDate } = props.education;
+    const { id, school, location, degree, startDate, endDate } =
+      props.education;
     this.state = {
       id: id,
       school: school,
       location: location,
       degree: degree,
-      graduationDate: graduationDate,
+      startDate: startDate,
+      endDate: endDate,
       minimise: false,
     };
   }
 
   updateEducation = () => {
-    const { id, school, location, degree, graduationDate } = this.state;
+    const { id, school, location, degree, startDate, endDate } = this.state;
     const edu = Education(id);
     edu.setSchool(school);
     edu.setDegree(degree);
-    edu.setGraduationDate(graduationDate);
+    edu.setStartDate(startDate);
+    edu.setEndDate(endDate);
     edu.setLocation(location);
     this.props.update(edu);
   };
@@ -70,7 +73,7 @@ class EducationFrom extends Component {
   };
 
   render() {
-    const { id, school, degree, graduationDate, location, minimise } =
+    const { id, school, degree, startDate, endDate, location, minimise } =
       this.state;
     if (minimise) {
       return (
@@ -128,12 +131,20 @@ class EducationFrom extends Component {
             value={degree}
             onChange={this.handleChange}
           />
-          <label htmlFor="graduation-date">graduation date:</label>
+          <label htmlFor="start-date">start date:</label>
           <input
             type="date"
-            name="graduationDate"
-            id="graduation-date"
-            value={format(graduationDate, "yyyy-MM-dd")}
+            name="startDate"
+            id="start-date"
+            value={format(startDate, "yyyy-MM-dd")}
+            onChange={this.handleChange}
+          />
+          <label htmlFor="end-date">end date:</label>
+          <input
+            type="date"
+            name="endDate"
+            id="end-date"
+            value={format(endDate, "yyyy-MM-dd")}
             onChange={this.handleChange}
           />
         </form>
