@@ -5,13 +5,13 @@ import Experience from "../../Experience";
 class ExperienceForm extends Component {
   constructor(props) {
     super(props);
-    const { id, company, position, location, startDate, endDate } =
+    const { id, company, position, description, startDate, endDate } =
       this.props.experience;
     this.state = {
       id: id,
       company: company,
       position: position,
-      location: location,
+      description: description,
       startDate: startDate,
       endDate: endDate,
       minimise: false,
@@ -24,11 +24,12 @@ class ExperienceForm extends Component {
   };
 
   updateExperience = () => {
-    const { id, company, position, location, startDate, endDate } = this.state;
+    const { id, company, position, description, startDate, endDate } =
+      this.state;
     const exp = Experience(id);
     exp.setCompany(company);
     exp.setPosition(position);
-    exp.setLocation(location);
+    exp.setDescription(description);
     exp.setStartDate(startDate);
     exp.setEndDate(endDate);
     this.props.update(exp);
@@ -102,6 +103,15 @@ class ExperienceForm extends Component {
           <p className="from-top-summary">{this.state.company}</p>
         </div>
         <form className="experience-form" onSubmit={this.handleSubmit}>
+          <label htmlFor="position">postion:</label>
+          <input
+            type="text"
+            name="position"
+            id="position"
+            placeholder="job title / position"
+            value={this.state.position}
+            onChange={this.handleChange}
+          ></input>
           <label htmlFor="company-name">company name:</label>
           <input
             type="text"
@@ -109,24 +119,6 @@ class ExperienceForm extends Component {
             id="company-name"
             placeholder="company"
             value={this.state.company}
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="company-location">location:</label>
-          <input
-            type="text"
-            name="location"
-            id="company-location"
-            placeholder="location"
-            value={this.state.location}
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="position">postion:</label>
-          <input
-            type="text"
-            name="position"
-            id="position"
-            placeholder="position"
-            value={this.state.position}
             onChange={this.handleChange}
           ></input>
           <label htmlFor="start-date">start date:</label>
@@ -145,6 +137,15 @@ class ExperienceForm extends Component {
             value={format(this.state.endDate, "yyyy-MM-dd")}
             onChange={this.handleChange}
           ></input>
+          <label htmlFor="job-description">location:</label>
+          <textarea
+            rows={5}
+            name="description"
+            id="job-description"
+            placeholder="job-description"
+            value={this.state.location}
+            onChange={this.handleChange}
+          ></textarea>
         </form>
       </div>
     );

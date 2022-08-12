@@ -4,7 +4,7 @@ const Experience = (id) => {
   experience.id = id;
   experience.company = "";
   experience.position = "";
-  experience.location = "";
+  experience.description = "";
   experience.startDate = new Date();
   experience.endDate = new Date();
 
@@ -16,8 +16,8 @@ const Experience = (id) => {
     experience.position = position;
   };
 
-  experience.setLocation = (location) => {
-    experience.location = location;
+  experience.setDescription = (description) => {
+    experience.description = description;
   };
 
   experience.setStartDate = (date) => {
