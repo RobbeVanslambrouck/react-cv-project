@@ -9,7 +9,11 @@ class CvTop extends Component {
           {firstName} {lastName}
         </p>
         <p className="cv-job-title">{title}</p>
-        <img alt="profile" src={profileImgUrl} className="cv-profile-img"></img>
+        <img
+          alt="profile"
+          src={profileImgUrl}
+          className={profileImgUrl ? "cv-profile-img" : "sr-only"}
+        ></img>
       </div>
     );
   }
