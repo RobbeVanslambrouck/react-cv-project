@@ -16,15 +16,16 @@ $border-white-space: scale-size(2rem);
 }
 
 @mixin vertical-div {
-  border-image: linear-gradient(180deg, #515151 0%, #dfdfdf 100%) 1;
+  border-image: linear-gradient(180deg, #dfdfdf 0%, #515151 50%, #dfdfdf 100%) 1;
   border-left: scale-size(3px) solid;
   padding-left: scale-size(2rem);
 }
 
-@mixin horizontal-div {
+@mixin horizontal-div($width) {
   border-image: linear-gradient(90deg, #515151 0%, #dfdfdf 100%) 50;
   border-bottom: scale-size(3px) solid;
   margin-bottom: scale-size(1rem);
+  width: scale-size($width);
 }
 
 @media only screen and (max-width: 30rem) {
@@ -76,6 +77,8 @@ $border-white-space: scale-size(2rem);
   letter-spacing: scale-size(0.4rem);
   font-size: scale-size(3.3rem);
   color: rgba($color: #000000, $alpha: 0.75);
+  padding-left: scale-size(0.7rem);
+
 }
 
 .cv-job-title {
@@ -84,6 +87,7 @@ $border-white-space: scale-size(2rem);
   color: rgba($color: #000000, $alpha: 0.75);
   align-self: baseline;
   grid-area: title;
+  padding-left: scale-size(0.7rem);
 }
 
 .section-title {
@@ -92,7 +96,7 @@ $border-white-space: scale-size(2rem);
   text-transform: uppercase;
   letter-spacing: scale-size(0.4rem);
   padding-left: scale-size(0.7rem);
-  @include horizontal-div();
+  @include horizontal-div(20rem);
 }
 
 .contact {
@@ -107,6 +111,7 @@ $border-white-space: scale-size(2rem);
     display: flex;
     gap: scale-size(1rem);
     align-items: center;
+    padding-left: 0 scale-size(0.7rem);
     &::before {
       content: '';
       background: $url;
@@ -140,16 +145,66 @@ $border-white-space: scale-size(2rem);
   grid-area: experience;
   padding-right: $border-white-space;
   @include vertical-div();
+
+  .experience {
+    padding: 0 scale-size(0.7rem);
+    .position {
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: scale-size(1rem);
+    }
+
+    .placeTime {
+      display: flex;
+      gap: scale-size(0.5rem);
+      color: #6b6b6b;
+      .company {
+        text-transform: capitalize;
+      }
+      .period {
+        color: #6b6b6b;
+        &::before {
+          content: ' | ';
+        }
+      }
+      .duration {
+        margin-left: auto;
+      }
+    }
+    .description {
+      margin-top: scale-size(0.5rem);
+    }
+  }
 }
 
 .profile {
   grid-area: profile;
   padding-right: $border-white-space;
   @include vertical-div();
+
+  .summary {
+    padding: 0 scale-size(0.7rem);
+
+  }
 }
 
 .educations {
   grid-area: education;
   padding-left: $border-white-space;
   max-width: scale-size(25rem);
+
+  .education {
+    padding: 0 scale-size(0.7rem);
+
+    .degree {
+      text-transform: capitalize;
+      font-weight: 600;
+      margin-bottom: scale-size(1rem);
+    }
+    .school {
+      font-style: italic;
+      margin-bottom: scale-size(0.5rem);
+
+    }
+  }
 }

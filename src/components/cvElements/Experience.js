@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { format } from "date-fns";
+import { format, formatDistance } from "date-fns";
+//var formatDistance = require('date-fns/formatDistance')
 
 class Experience extends Component {
   showExpertience = (exp) => (
     <div key={exp.id} className="experience">
       <p className="position">{exp.position}</p>
-      <div>
+      <div className="placeTime">
         <p className="company">{exp.company}</p>
         <p className="period">
           {`${format(exp.startDate, "MM/yy")} - ${format(
@@ -13,8 +14,9 @@ class Experience extends Component {
             "MM/yy"
           )}`}
         </p>
+        <p className="duration">{formatDistance(exp.startDate, exp.endDate)}</p>
       </div>
-      <p className="location">{exp.description}</p>
+      <p className="description">{exp.description}</p>
     </div>
   );
 

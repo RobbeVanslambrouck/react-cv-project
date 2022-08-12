@@ -6,7 +6,7 @@ class Profile extends Component {
     return (
       <div className="profile">
         <p className="section-title">Profile</p>
-        <p className="profile-summary">{summary}</p>
+        <p className="summary">{summary}</p>
       </div>
     );
   }
