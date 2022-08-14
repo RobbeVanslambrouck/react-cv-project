@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-cv-project/static/css/main.4aa66a08.css",
+    "main.js": "/react-cv-project/static/js/main.ac51a363.js",
+    "static/media/link-svgrepo-com.svg": "/react-cv-project/static/media/link-svgrepo-com.ae3a845422f298e6009d.svg",
+    "static/media/phone-call-svgrepo-com.svg": "/react-cv-project/static/media/phone-call-svgrepo-com.0c7352d80cd4a84f1b51.svg",
+    "static/media/linkedin-svgrepo-com.svg": "/react-cv-project/static/media/linkedin-svgrepo-com.318d119060699b45e6be.svg",
+    "static/media/mail-svgrepo-com.svg": "/react-cv-project/static/media/mail-svgrepo-com.782f5102f06c34c1439d.svg",
+    "index.html": "/react-cv-project/index.html",
+    "static/media/location-svgrepo-com.svg": "/react-cv-project/static/media/location-svgrepo-com.7f94e9d4fd879a63edad.svg",
+    "main.4aa66a08.css.map": "/react-cv-project/static/css/main.4aa66a08.css.map",
+    "main.ac51a363.js.map": "/react-cv-project/static/js/main.ac51a363.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4aa66a08.css",
+    "static/js/main.ac51a363.js"
+  ]
+}
